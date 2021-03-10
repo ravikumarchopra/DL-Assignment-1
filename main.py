@@ -1,12 +1,10 @@
-from keras.datasets import fashion_mnist
-import matplotlib.pyplot as plt
+from util import *
+from ffnNetwork import FFNNetwork
 
+# Preparing data
+x_train, x_test, y_train, y_test= prep_img_data()
 
-# Loading data
-(x_train, y_train), (x_test, y_test) = fashion_mnist.load_data()
+# Running forward pass
+ffnn=FFNNetwork(x_train.shape[2], hidden_layers=[3])
+ffnn.forward_pass(x_train[0])
 
-# Plotting images
-for i in range(9):
-  plt.subplot(330 + 1 + i)
-  plt.imshow(x_train[i], cmap=plt.get_cmap('gray'), )
-plt.show()
