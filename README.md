@@ -56,41 +56,41 @@ The number of elements in inputs and output_labels must be equal. The learning r
 Usage of the fit method is shown in the example below:
 
 ```python
-    {
-        network = FFNNetwork(2, output_size= 1, hidden_layers=[16, 32], act_func='sigmoid', loss_func='ce')
-        network.fit([[0.1, 0.2, 0.3], [0.1, 0.2, 0.3]], [0, 1, 2], weight_decay=0, display_loss=True, display_accuracy=True, opt_algo='adam', epochs=10, lr=0.001)
-    }
+    network = FFNNetwork(2, output_size= 1, hidden_layers=[16, 32], act_func='sigmoid', loss_func='ce')
+    network.fit([[0.1, 0.2, 0.3], [0.1, 0.2, 0.3]], [0, 1, 2], weight_decay=0, display_loss=True, display_accuracy=True, opt_algo='adam', epochs=10, lr=0.001)
 ```
 
 Alternatively, you can train the neural network by loading the data from ` keras.datasets `` e.g. mnist, fashion_mnist `, with the ` load_mnist_data ` and ` load_fashion_mnist_data ` methods respectively. 
 
 For using the ` load_mnist_data ` and ` load_fashion_mnist_data ` methods first import ` util.py `:
 
-` from util import * `
+```python
+    from util import * 
+ ```
 
 Then call the ` load_mnist_data ` or ` load_fashion_mnist_data ` method to load data:
 
-`x_train, x_test, y_train, y_test= load_fashion_mnist_data()`
+```python
+    x_train, x_test, y_train, y_test= load_fashion_mnist_data()
+```
 
 # Testing Model Accuracy
 
 you can now test the accuracy of you model using the following code:
 
-```pyhton
-    {
-        y_preds=ffnn.predict(x_test)
-        y_preds=np.argmax(y_preds, axis=1)
-        test=np.argmax(y_test, axis=1)
-        print(accuracy_score(preds, test))
-    }    
+```python
+    y_preds=ffnn.predict(x_test)
+    y_preds=np.argmax(y_preds, axis=1)
+    test=np.argmax(y_test, axis=1)
+    print(accuracy_score(preds, test))  
 ```
 
 # Examples
 
-## MNIST handwritten digit classification
+### MNIST handwritten digit classification
 ` mnist.py ` shows how to create and train a neural network which identifies the handwritten digit in the image. This script creates a network with ` 28x28 = 784 ` input neurons and `10` output neuron. The inputs contains handwritten digit images ` 28x28 pixels ` each where image is represented as a ` 28x28 ` matrix where each element of this matrix represents the `rgb` value of corresponding pixel in the image. The output of the network should be a digit corresponding to the input image. The script trains the network using the network with 54000 sample images of handwritten digits. It then tests the accuracy on test data.
 
-## FASHAION* MNIST clothing classification
+### FASHAION* MNIST clothing classification
 
 ` fashion_mnist.py ` shows how to create and train a neural network which identifies the clothing in the image. This script creates a network with ` 28x28 = 784 ` input neurons and `10` output neuron. The inputs contains clothing images ` 28x28 pixels ` each where image is represented as a ` 28x28 ` matrix where each element of this matrix represents the `rgb` value of corresponding pixel in the image. The output of the network should be a class corresponding to the input image. The script trains the network using the network with 54000 sample images of clothing. It then tests the accuracy on test data.
 
