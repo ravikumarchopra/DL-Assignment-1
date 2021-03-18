@@ -10,7 +10,7 @@ To use the Neural Network first import { FFNNetwork } class from { ffnNetwork.py
 
 You can now create an instance of the FFNNetwork class. The constructor takes six parameters:
 
-*{input_size :} An integer representing the number of features of input data.  
+*`input_size :` An integer representing the number of features of input data.  
 *{output_size :} An integer representing the number of output classes  { e.g. 1(default) }.
 *{hidden_layers :} A list of integers representing the number of neurons in each layer { e.g. [16, 32, 128] }.
 *{init_func :} A string representing the name of initialization function { e.g. 'random', 'xavier'(default), 'zero', 'he' } you want to use to initialize weights and biases.
